@@ -1,0 +1,34 @@
+#!/bin/sh
+
+PROGNAME=$1
+
+USER=$2
+PASS=$3
+HOST=$4
+TYPE=$5
+URI=$6
+
+MOUNT_POINT=$7
+
+mount() {
+  if [ -d $MOUNT_POINT ]; then
+    MOUNT_POINT=$MOUNT_POINT-mp
+  fi
+  echo $PASS | gio mount $URI \
+    && ID=$(gio info $URI | grep 'id::filesystem:' | sed s/.*$TYPE/$TYPE/) \
+    && DIR=/run/user/$(id -u)/gvfs/$ID \
+    && ln -s $DIR $MOUNT_POINT \
+    && echo "$PROGNAME: $MOUNT_POINT is mounted" \
+    && echo "$PROGNAME: id is $ID"
+}
+
+umount() {
+  if [ -d $MOUNT_POINT-mp ]; then
+    MOUNT_POINT=$MOUNT_POINT-mp
+  fi
+  gio mount -u $URI \
+    && rm -f $MOUNT_POINT \
+    && echo "$PROGNAME: $MOUNT_POINT is unmounted"
+}
+
+(gio info $URI > /dev/null) && umount || mount
