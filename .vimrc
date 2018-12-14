@@ -1,9 +1,11 @@
+call pathogen#infect()
+
 set title                       " Change the terminal's title.
 
 set nowrap
-set tabstop=4                   " A tab is 4 spaces.
-set softtabstop=4               " Remove tab with <backspace>, even if spaces.
-set shiftwidth=4
+set tabstop=2                   " A tab is 2 spaces.
+set softtabstop=2               " Remove tab with <backspace>, even if spaces.
+set shiftwidth=2
 set autoindent
 set expandtab                   " Use spaces instead of tabs.
 set backspace=indent,eol,start
@@ -14,6 +16,7 @@ set hlsearch                    " Highlight search terms.
 set incsearch                   " Show search matches as you type.
 set ignorecase smartcase        " Ignore case if all lowercase case-sensitive otherwise.
 set mouse=a                     " Enable using the mouse if terminal supports it.
+set modeline                    " Enable file-specific settings.
 
 set hidden                      " Allow to keep a file unsaved in background.
 
