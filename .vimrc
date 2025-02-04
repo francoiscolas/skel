@@ -1,9 +1,9 @@
 set title                       " Change the terminal's title.
 
 set nowrap
-set tabstop=2                   " A tab is 2 spaces.
-set softtabstop=2               " Remove tab with <backspace>, even if spaces.
-set shiftwidth=2
+set tabstop=4                   " A tab is 4 spaces.
+set softtabstop=4               " Remove tab with <backspace>, even if spaces.
+set shiftwidth=4
 set autoindent
 set expandtab                   " Use spaces instead of tabs.
 set backspace=indent,eol,start
@@ -20,4 +20,5 @@ set hidden                      " Allow to keep a file unsaved in background.
 set wildmenu
 set wildmode=longest:list,full
 
-filetype plugin indent on
+filetype plugin on
+filetype indent on

@@ -1,5 +1,28 @@
 [core]
-  editor = vim
+    editor = vim
+
 [user]
-	name = François Colas
-  email = francois.colas@eseo.fr
+    name = François Colas
+    email = francoiscolas@gmail.com
+
+[color]
+    ui = auto
+
+[alias]
+    adog = log --all --decorate --oneline --graph --pretty=format:'%C(bold yellow)%h%Creset -%C(bold red)%d%Creset %s %C(bold blue)<%an>%Creset %C(dim green)(%ci)%Creset'
+    br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(authorname)' --sort=-committerdate
+    co = checkout
+    cwb = branch --show-current
+    del = branch -D
+    s = status
+    smu = submodule update --init
+    smurf = submodule update --init --recursive --force
+    sw = switch
+    h = rev-parse --short HEAD
+    here = rev-parse HEAD
+    pullm = pull --recurse-submodules
+    pushu = push -u origin HEAD
+
+[pull]
+    rebase = true
+
